@@ -15,6 +15,7 @@
 		04F845DC21F851C300D3DB87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F845DB21F851C300D3DB87 /* main.m */; };
 		04F845E621F851C300D3DB87 /* YMJD_WebImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F845E521F851C300D3DB87 /* YMJD_WebImageTests.m */; };
 		04F845F121F851C300D3DB87 /* YMJD_WebImageUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F845F021F851C300D3DB87 /* YMJD_WebImageUITests.m */; };
+		1F445195DC4819BEDEC43822 /* libPods-YMJD_WebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A7C764E546C716857A3374 /* libPods-YMJD_WebImage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,9 @@
 		04F845EC21F851C300D3DB87 /* YMJD_WebImageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YMJD_WebImageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F845F021F851C300D3DB87 /* YMJD_WebImageUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YMJD_WebImageUITests.m; sourceTree = "<group>"; };
 		04F845F221F851C300D3DB87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E26D19ED424389158E83D0C /* Pods-YMJD_WebImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YMJD_WebImage.release.xcconfig"; path = "Pods/Target Support Files/Pods-YMJD_WebImage/Pods-YMJD_WebImage.release.xcconfig"; sourceTree = "<group>"; };
+		62A7C764E546C716857A3374 /* libPods-YMJD_WebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YMJD_WebImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92C26E283AB03DA8F99F1D33 /* Pods-YMJD_WebImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YMJD_WebImage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YMJD_WebImage/Pods-YMJD_WebImage.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F445195DC4819BEDEC43822 /* libPods-YMJD_WebImage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,8 @@
 				04F845E421F851C300D3DB87 /* YMJD_WebImageTests */,
 				04F845EF21F851C300D3DB87 /* YMJD_WebImageUITests */,
 				04F845CA21F851C000D3DB87 /* Products */,
+				C62D2C5F1119600CD51EEC67 /* Pods */,
+				ACFDA9FF6DCBD7BC53906F93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +139,23 @@
 			path = YMJD_WebImageUITests;
 			sourceTree = "<group>";
 		};
+		ACFDA9FF6DCBD7BC53906F93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62A7C764E546C716857A3374 /* libPods-YMJD_WebImage.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C62D2C5F1119600CD51EEC67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				92C26E283AB03DA8F99F1D33 /* Pods-YMJD_WebImage.debug.xcconfig */,
+				0E26D19ED424389158E83D0C /* Pods-YMJD_WebImage.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +163,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04F845F521F851C300D3DB87 /* Build configuration list for PBXNativeTarget "YMJD_WebImage" */;
 			buildPhases = (
+				CDFFDF6E37BFB20826FA75D6 /* [CP] Check Pods Manifest.lock */,
 				04F845C521F851C000D3DB87 /* Sources */,
 				04F845C621F851C000D3DB87 /* Frameworks */,
 				04F845C721F851C000D3DB87 /* Resources */,
@@ -256,6 +281,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CDFFDF6E37BFB20826FA75D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YMJD_WebImage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04F845C521F851C000D3DB87 /* Sources */ = {
@@ -433,11 +483,13 @@
 		};
 		04F845F621F851C300D3DB87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92C26E283AB03DA8F99F1D33 /* Pods-YMJD_WebImage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AC6B3PGZV;
 				INFOPLIST_FILE = YMJD_WebImage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,11 +502,13 @@
 		};
 		04F845F721F851C300D3DB87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E26D19ED424389158E83D0C /* Pods-YMJD_WebImage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AC6B3PGZV;
 				INFOPLIST_FILE = YMJD_WebImage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

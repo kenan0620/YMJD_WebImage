@@ -1,0 +1,11 @@
+
+platform :ios, '9.0'
+
+target 'YMJD_WebImage' do
+
+pod 'SDWebImage'
+
+pod 'YYKit'
+
+
+end
