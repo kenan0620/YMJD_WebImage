@@ -5,7 +5,7 @@ target 'YMJD_WebImage' do
 
 pod 'SDWebImage'
 
-pod 'YYKit'
+pod 'YYWebImage'
 
 
 end

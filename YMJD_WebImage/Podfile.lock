@@ -2,23 +2,31 @@ PODS:
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
-  - YYKit (1.0.9):
-    - YYKit/no-arc (= 1.0.9)
-  - YYKit/no-arc (1.0.9)
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
 
 DEPENDENCIES:
   - SDWebImage
-  - YYKit
+  - YYWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - SDWebImage
-    - YYKit
+    - YYCache
+    - YYImage
+    - YYWebImage
 
 SPEC CHECKSUMS:
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
-  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: ef4803a624742b26d87e1eb25f8eef7570047c06
+PODFILE CHECKSUM: 29ad54cf1f928f0e7ee72b9abc8bf84f54f9869e
 
 COCOAPODS: 1.5.3

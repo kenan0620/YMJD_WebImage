@@ -15,6 +15,8 @@
 		04F845DC21F851C300D3DB87 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F845DB21F851C300D3DB87 /* main.m */; };
 		04F845E621F851C300D3DB87 /* YMJD_WebImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F845E521F851C300D3DB87 /* YMJD_WebImageTests.m */; };
 		04F845F121F851C300D3DB87 /* YMJD_WebImageUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F845F021F851C300D3DB87 /* YMJD_WebImageUITests.m */; };
+		04F8460221F85DCC00D3DB87 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04F8460121F85DCB00D3DB87 /* 2.jpg */; };
+		04F8460421F85E4900D3DB87 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04F8460321F85E4900D3DB87 /* 1.jpg */; };
 		1F445195DC4819BEDEC43822 /* libPods-YMJD_WebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A7C764E546C716857A3374 /* libPods-YMJD_WebImage.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		04F845EC21F851C300D3DB87 /* YMJD_WebImageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YMJD_WebImageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F845F021F851C300D3DB87 /* YMJD_WebImageUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YMJD_WebImageUITests.m; sourceTree = "<group>"; };
 		04F845F221F851C300D3DB87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F8460121F85DCB00D3DB87 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		04F8460321F85E4900D3DB87 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		0E26D19ED424389158E83D0C /* Pods-YMJD_WebImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YMJD_WebImage.release.xcconfig"; path = "Pods/Target Support Files/Pods-YMJD_WebImage/Pods-YMJD_WebImage.release.xcconfig"; sourceTree = "<group>"; };
 		62A7C764E546C716857A3374 /* libPods-YMJD_WebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YMJD_WebImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C26E283AB03DA8F99F1D33 /* Pods-YMJD_WebImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YMJD_WebImage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YMJD_WebImage/Pods-YMJD_WebImage.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		04F845CB21F851C000D3DB87 /* YMJD_WebImage */ = {
 			isa = PBXGroup;
 			children = (
+				04F845FE21F85CDE00D3DB87 /* Resource */,
 				04F845CC21F851C000D3DB87 /* AppDelegate.h */,
 				04F845CD21F851C000D3DB87 /* AppDelegate.m */,
 				04F845CF21F851C000D3DB87 /* ViewController.h */,
@@ -137,6 +142,15 @@
 				04F845F221F851C300D3DB87 /* Info.plist */,
 			);
 			path = YMJD_WebImageUITests;
+			sourceTree = "<group>";
+		};
+		04F845FE21F85CDE00D3DB87 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				04F8460321F85E4900D3DB87 /* 1.jpg */,
+				04F8460121F85DCB00D3DB87 /* 2.jpg */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		ACFDA9FF6DCBD7BC53906F93 /* Frameworks */ = {
@@ -263,6 +277,8 @@
 				04F845D921F851C300D3DB87 /* LaunchScreen.storyboard in Resources */,
 				04F845D621F851C300D3DB87 /* Assets.xcassets in Resources */,
 				04F845D421F851C100D3DB87 /* Main.storyboard in Resources */,
+				04F8460221F85DCC00D3DB87 /* 2.jpg in Resources */,
+				04F8460421F85E4900D3DB87 /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
