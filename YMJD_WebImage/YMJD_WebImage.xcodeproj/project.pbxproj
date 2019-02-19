@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04EBA1BD221A4B7B0074546E /* UIImageView+WDYWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBA1BC221A4B7B0074546E /* UIImageView+WDYWebImage.m */; };
 		04F845CE21F851C000D3DB87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F845CD21F851C000D3DB87 /* AppDelegate.m */; };
 		04F845D121F851C000D3DB87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F845D021F851C000D3DB87 /* ViewController.m */; };
 		04F845D421F851C100D3DB87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F845D221F851C100D3DB87 /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04EBA1BB221A4B7B0074546E /* UIImageView+WDYWebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WDYWebImage.h"; sourceTree = "<group>"; };
+		04EBA1BC221A4B7B0074546E /* UIImageView+WDYWebImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WDYWebImage.m"; sourceTree = "<group>"; };
 		04F845C921F851C000D3DB87 /* YMJD_WebImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YMJD_WebImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F845CC21F851C000D3DB87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04F845CD21F851C000D3DB87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				04F845CD21F851C000D3DB87 /* AppDelegate.m */,
 				04F845CF21F851C000D3DB87 /* ViewController.h */,
 				04F845D021F851C000D3DB87 /* ViewController.m */,
+				04EBA1BB221A4B7B0074546E /* UIImageView+WDYWebImage.h */,
+				04EBA1BC221A4B7B0074546E /* UIImageView+WDYWebImage.m */,
 				04F845D221F851C100D3DB87 /* Main.storyboard */,
 				04F845D521F851C300D3DB87 /* Assets.xcassets */,
 				04F845D721F851C300D3DB87 /* LaunchScreen.storyboard */,
@@ -328,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EBA1BD221A4B7B0074546E /* UIImageView+WDYWebImage.m in Sources */,
 				04F845D121F851C000D3DB87 /* ViewController.m in Sources */,
 				04F845DC21F851C300D3DB87 /* main.m in Sources */,
 				04F845CE21F851C000D3DB87 /* AppDelegate.m in Sources */,

@@ -62,17 +62,20 @@ static char TAG_ACTIVITY_SHOW;
                            context:(nullable NSDictionary<NSString *, id> *)context {
     NSString *validOperationKey = operationKey ?: NSStringFromClass([self class]);
     [self sd_cancelImageLoadOperationWithKey:validOperationKey];
+    //设置关联，将url进行关联到self，以imageURLKey作为key，属性设置为OBJC_ASSOCIATION_RETAIN_NONATOMIC（RETAIN_NONATOMIC）
     objc_setAssociatedObject(self, &imageURLKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
+    //判断策略模式，选用何种策略
     if (!(options & SDWebImageDelayPlaceholder)) {
         dispatch_main_async_safe(^{
             [self sd_setImage:placeholder imageData:nil basedOnClassOrViaCustomSetImageBlock:setImageBlock];
         });
     }
-    
+    //判断是否有图片地址
     if (url) {
 #if SD_UIKIT
         // check if activityView is enabled or not
+        //显示等待视图
         if ([self sd_showActivityIndicatorView]) {
             [self sd_addActivityIndicator];
         }
@@ -83,6 +86,7 @@ static char TAG_ACTIVITY_SHOW;
         self.sd_imageProgress.completedUnitCount = 0;
         
         SDWebImageManager *manager;
+        //创建manager对象，并进行存取，当context中存在managerkey时直接取用，当不存在时进行创建manager
         if ([context valueForKey:SDWebImageExternalCustomManagerKey]) {
             manager = (SDWebImageManager *)[context valueForKey:SDWebImageExternalCustomManagerKey];
         } else {
@@ -90,6 +94,7 @@ static char TAG_ACTIVITY_SHOW;
         }
         
         __weak __typeof(self)wself = self;
+        //绑定进度
         SDWebImageDownloaderProgressBlock combinedProgressBlock = ^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             wself.sd_imageProgress.totalUnitCount = expectedSize;
             wself.sd_imageProgress.completedUnitCount = receivedSize;
@@ -97,6 +102,8 @@ static char TAG_ACTIVITY_SHOW;
                 progressBlock(receivedSize, expectedSize, targetURL);
             }
         };
+        
+        //协议，加载图片
         id <SDWebImageOperation> operation = [manager loadImageWithURL:url options:options progress:combinedProgressBlock completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
             __strong __typeof (wself) sself = wself;
             if (!sself) { return; }
@@ -131,6 +138,7 @@ static char TAG_ACTIVITY_SHOW;
             
             UIImage *targetImage = nil;
             NSData *targetData = nil;
+            //图片存在则展示图片，否则展示占位图
             if (image) {
                 // case 2a: we got an image and the SDWebImageAvoidAutoSetImage is not set
                 targetImage = image;
@@ -143,6 +151,7 @@ static char TAG_ACTIVITY_SHOW;
             
 #if SD_UIKIT || SD_MAC
             // check whether we should use the image transition
+            //图片进行转换
             SDWebImageTransition *transition = nil;
             if (finished && (options & SDWebImageForceTransition || cacheType == SDImageCacheTypeNone)) {
                 transition = sself.sd_imageTransition;

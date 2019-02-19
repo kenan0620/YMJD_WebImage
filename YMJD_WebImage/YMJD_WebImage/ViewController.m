@@ -32,6 +32,9 @@
 
 - (void)sdWebImage{
     [self.sdWebImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg"]];
+//    [self.sdWebImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@""] options:(SDWebImageDownloaderOptions) completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//        
+//    }];
 }
 
 - (void)yyWebImage{
