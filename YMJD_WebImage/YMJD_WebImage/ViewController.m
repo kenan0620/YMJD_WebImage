@@ -10,6 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <YYWebImage/YYWebImage.h>
 
+#import "UIImageView+WDYWebImage.h"
 @interface ViewController ()
 @property (nonatomic, readwrite, strong) UIImageView *sdWebImageView;
 @property (nonatomic, readwrite, strong) UIImageView *yyWebImageView;
@@ -28,13 +29,22 @@
     
     [self sdWebImage];
     [self yyWebImage];
+    [self wdyWebImage];
+}
+
+- (void)wdyWebImage{
+    NSLog(@"wdyWebImage");
 }
 
 - (void)sdWebImage{
     [self.sdWebImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg"]];
 //    [self.sdWebImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@""] options:(SDWebImageDownloaderOptions) completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//        
+//
 //    }];
+    
+    [self.sdWebImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg"] placeholderImage:[UIImage imageNamed:@""] options:(0) completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
+    }];
 }
 
 - (void)yyWebImage{
