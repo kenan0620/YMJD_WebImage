@@ -7,6 +7,8 @@
 //
 
 #import "UIImageView+WDYWebImage.h"
+
+#import <SDWebImage/UIImageView+WebCache.h>
 //transition 为mMAC所用，对于iOS目前不用
 @implementation UIImageView (WDYWebImage)
 
@@ -39,6 +41,22 @@
                    Progress:(nullable WDYWebImageDownloaderProgressBlock)progress
               CompleteBlock:(nullable WDYExternalCompletionBlock)complete{
     
+}
+
+- (void)downloadImage:(NSString *)urlStr placeholder:(NSString *)placeholderImage success:(DownImageSuccessBlock)success failed:(DownImageFailedBlock)failed progress:(DownImageProgressBlock)progress {
+    
+    [self sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:placeholderImage] options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        progress(receivedSize * 1.0 / expectedSize);
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
+        if (error) {
+            failed(error);
+        } else {
+            self.image = image;
+            success(image);
+        }
+        
+    }];
 }
 
 @end

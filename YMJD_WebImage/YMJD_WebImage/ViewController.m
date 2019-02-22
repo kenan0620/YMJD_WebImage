@@ -25,13 +25,51 @@
     [self.view addSubview:self.sdWebImageView];
     [self.view addSubview:self.yyWebImageView];
     
+    UIImage *image =[UIImage imageNamed:@"1.jpg"];
     
+    CGFloat fixelW = CGImageGetWidth(image.CGImage);
     
+    CGFloat fixelH = CGImageGetHeight(image.CGImage);
+    
+    NSLog(@"%f,%f",fixelW,fixelH);
+    
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img5.imgtn.bdimg.com/it/u=935292084,2640874667&fm=26&gp=0.jpg"]];
+    NSLog(@"%@",imageData);
+    NSLog(@"14314wsrew:%d",[self sd_imageFormatForImageData:imageData]);
     [self sdWebImage];
     [self yyWebImage];
     [self wdyWebImage];
 }
-
+- (int)sd_imageFormatForImageData:(nullable NSData *)data {
+    if (!data) {
+        return 0;
+    }
+    
+    uint8_t c;
+    [data getBytes:&c length:1];
+    switch (c) {
+        case 0xFF:
+            return 1;
+        case 0x89:
+            return 2;
+        case 0x47:
+            return 3;
+        case 0x49:
+        case 0x4D:
+            return 4;
+        case 0x52:
+            // R as RIFF for WEBP
+            if (data.length < 12) {
+                return 0;
+            }
+            
+            NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
+            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
+                return 5;
+            }
+    }
+    return 0;
+}
 - (void)wdyWebImage{
     NSLog(@"wdyWebImage");
 }
