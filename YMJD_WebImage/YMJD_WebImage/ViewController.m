@@ -25,7 +25,7 @@
     [self.view addSubview:self.sdWebImageView];
     [self.view addSubview:self.yyWebImageView];
     
-    UIImage *image =[UIImage imageNamed:@"1.jpg"];
+    UIImage *image =[UIImage imageNamed:@"1"];
     
     CGFloat fixelW = CGImageGetWidth(image.CGImage);
     
@@ -33,13 +33,55 @@
     
     NSLog(@"%f,%f",fixelW,fixelH);
     
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img5.imgtn.bdimg.com/it/u=935292084,2640874667&fm=26&gp=0.jpg"]];
-    NSLog(@"%@",imageData);
-    NSLog(@"14314wsrew:%d",[self sd_imageFormatForImageData:imageData]);
+    NSData *data = UIImagePNGRepresentation(image);
+    NSData *data2 = UIImageJPEGRepresentation(image, 1);
+    
+    uint8_t c;
+    [data getBytes:&c length:1];
+    
+    uint8_t c1;
+    [data2 getBytes:&c1 length:1];
+    
+    switch (c) {
+        case 0xFF:
+            NSLog(@"1");
+            break;
+        case 0x89:
+            NSLog(@"2");
+             break;
+        case 0x47:
+            NSLog(@"3");
+             break;
+        case 0x49:
+        case 0x4D:
+            NSLog(@"4");
+             break;
+        case 0x52:
+            // R as RIFF for WEBP
+            if (data.length < 12) {
+                NSLog(@"5");
+                 break;
+            }
+            
+            NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
+            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
+                NSLog(@"6");
+                 break;
+            }
+    }
+//    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://img5.imgtn.bdimg.com/it/u=935292084,2640874667&fm=26&gp=0.jpg"]];
+//    NSLog(@"%@",imageData);
+//    NSLog(@"14314wsrew:%d",[self sd_imageFormatForImageData:imageData]);
     [self sdWebImage];
     [self yyWebImage];
     [self wdyWebImage];
+    
+   
+    
+    
 }
+
+
 - (int)sd_imageFormatForImageData:(nullable NSData *)data {
     if (!data) {
         return 0;
@@ -72,17 +114,25 @@
 }
 - (void)wdyWebImage{
     NSLog(@"wdyWebImage");
+    [self.sdWebImageView wdy_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg"] PlaceholderImage:[UIImage imageNamed:@"2"] Progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        
+    } CompleteBlock:^(UIImage * _Nullable image, NSError * _Nullable error, NSURL * _Nullable imageURL) {
+        
+    }];
+    
 }
 
 - (void)sdWebImage{
-    [self.sdWebImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg"]];
-//    [self.sdWebImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@""] options:(SDWebImageDownloaderOptions) completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//
-//    }];
     
-    [self.sdWebImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg"] placeholderImage:[UIImage imageNamed:@""] options:(0) completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        
-    }];
+//    [self.sdWebImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg"] placeholderImage:[UIImage imageNamed:@"2"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+//        NSLog(@"1111%@",targetURL.absoluteString);
+//    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//        NSLog(@"2222%@",imageURL.absoluteString);
+//
+//        NSString *filePath = [[SDWebImageManager sharedManager].imageCache defaultCachePathForKey:[[SDWebImageManager sharedManager] cacheKeyForURL:imageURL]];
+//        //获得图片本地文件path
+//        NSLog(@"%@",filePath);
+//    }];
 }
 
 - (void)yyWebImage{
@@ -144,30 +194,31 @@
                             return [image yy_imageByRoundCornerRadius:10];
                         }
                        completion:^(UIImage *image, NSURL *url, YYWebImageFromType from, YYWebImageStage stage, NSError *error) {
+                           NSLog(@"url ~~%@",url);
                            if (from == YYWebImageFromDiskCache) {
                                NSLog(@"load from disk cache");
                            }
                        }];
-    YYImageCache *cache = [YYWebImageManager sharedManager].cache;
-    // 获取缓存大小 、图片数量
-    NSLog(@"%lu",(unsigned long)cache.memoryCache.totalCost);
-    NSLog(@"%lu",(unsigned long)cache.memoryCache.totalCount);
-    NSLog(@"%lu",(unsigned long)cache.diskCache.totalCost);
-    NSLog(@"%lu",(unsigned long)cache.diskCache.totalCount);
-    
-    // 清空缓存
-    [cache.memoryCache removeAllObjects];
-    [cache.diskCache removeAllObjects];
-    
-    //删除指定的资源
-    [cache.diskCache removeObjectForKey:@""];
-    
-    // 清空磁盘缓存，带进度回调
-    [cache.diskCache removeAllObjectsWithProgressBlock:^(int removedCount, int totalCount) {
-        // progress
-    } endBlock:^(BOOL error) {
-        // end
-    }];
+//    YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+//    // 获取缓存大小 、图片数量
+//    NSLog(@"%lu",(unsigned long)cache.memoryCache.totalCost);
+//    NSLog(@"%lu",(unsigned long)cache.memoryCache.totalCount);
+//    NSLog(@"%lu",(unsigned long)cache.diskCache.totalCost);
+//    NSLog(@"%lu",(unsigned long)cache.diskCache.totalCount);
+//
+//    // 清空缓存
+//    [cache.memoryCache removeAllObjects];
+//    [cache.diskCache removeAllObjects];
+//
+//    //删除指定的资源
+//    [cache.diskCache removeObjectForKey:@""];
+//
+//    // 清空磁盘缓存，带进度回调
+//    [cache.diskCache removeAllObjectsWithProgressBlock:^(int removedCount, int totalCount) {
+//        // progress
+//    } endBlock:^(BOOL error) {
+//        // end
+//    }];
 }
 - (UIImageView *)sdWebImageView{
     if (!_sdWebImageView) {

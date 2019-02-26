@@ -75,16 +75,6 @@ typedef void(^DownImageProgressBlock)(CGFloat progress);
                    Progress:(nullable WDYWebImageDownloaderProgressBlock)progress
               CompleteBlock:(nullable WDYExternalCompletionBlock)complete;
 
-/**
- *  异步加载图片，监听下载进度、成功、失败
- *
- *  @param urlStr    图片地址
- *  @param imageName 占位图片名字
- *  @param success   下载成功
- *  @param failed    下载失败
- *  @param progress  下载进度
- */
-- (void)downloadImage:(NSString *)urlStr placeholder:(NSString *)placeholderImage success:(DownImageSuccessBlock)success failed:(DownImageFailedBlock)failed progress:(DownImageProgressBlock)progress;
 @end
 
 NS_ASSUME_NONNULL_END
