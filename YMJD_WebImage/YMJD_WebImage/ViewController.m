@@ -114,11 +114,13 @@
 }
 - (void)wdyWebImage{
     NSLog(@"wdyWebImage");
-    [self.sdWebImageView wdy_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg"] PlaceholderImage:[UIImage imageNamed:@"2"] Progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-        
-    } CompleteBlock:^(UIImage * _Nullable image, NSError * _Nullable error, NSURL * _Nullable imageURL) {
-        
-    }];
+//    [self.sdWebImageView wdy_setImageWithURL:[NSURL URLWithString:@"http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg"] PlaceholderImage:[UIImage imageNamed:@"2"] Progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+//        
+//    } CompleteBlock:^(UIImage * _Nullable image, NSError * _Nullable error, NSURL * _Nullable imageURL) {
+//        
+//    }];
+    
+    [self.sdWebImageView wdy_setImageWithURL:[NSURL URLWithString:@"http://pic3.nipic.com/20090702/918855_174429094_2.jpg"]];
     
 }
 

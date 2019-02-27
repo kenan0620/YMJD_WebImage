@@ -42,9 +42,13 @@
               CompleteBlock:(nullable WDYExternalCompletionBlock)complete{
     
     [self sd_setImageWithURL:url placeholderImage:placeholderImage options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-        progress(receivedSize,expectedSize,targetURL);
+        if (progress) {
+            progress(receivedSize,expectedSize,targetURL);
+        }
     } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        complete(image,error,imageURL);
+        if (complete) {
+           complete(image,error,imageURL);
+        }
     }];
 }
 

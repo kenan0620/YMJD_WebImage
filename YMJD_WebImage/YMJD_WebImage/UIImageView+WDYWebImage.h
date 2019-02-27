@@ -13,24 +13,24 @@ typedef void(^WDYExternalCompletionBlock)(UIImage * _Nullable image, NSError * _
 typedef void(^WDYWebImageDownloaderProgressBlock)(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL);
 
 
-/**
- *  监听下载成功的Block
- *
- *  @param image 返回下载成功的图片
- */
-typedef void(^DownImageSuccessBlock)(UIImage *image);
-/**
- *  监听下载失败的Block
- *
- *  @param error 返回错误信息
- */
-typedef void(^DownImageFailedBlock)(NSError *error);
-/**
- *  监听下载进度的Block
- *
- *  @param progress 返回下载进度
- */
-typedef void(^DownImageProgressBlock)(CGFloat progress);
+///**
+// *  监听下载成功的Block
+// *
+// *  @param image 返回下载成功的图片
+// */
+//typedef void(^DownImageSuccessBlock)(UIImage *image);
+///**
+// *  监听下载失败的Block
+// *
+// *  @param error 返回错误信息
+// */
+//typedef void(^DownImageFailedBlock)(NSError *error);
+///**
+// *  监听下载进度的Block
+// *
+// *  @param progress 返回下载进度
+// */
+//typedef void(^DownImageProgressBlock)(CGFloat progress);
 
 @interface UIImageView (WDYWebImage)
 
